@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pumpkin Bros</title>
+
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+}
+
+header{
+    background:linear-gradient(90deg,#ff6a00,#ff9500);
+    text-align:center;
+    padding:30px;
+}
+
+h1{
+    margin:0;
+    font-size:3em;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.menu-card{
+    text-decoration:none;
+    color:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+    border:2px solid rgba(255,255,255,0.2);
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+.menu-card:hover{
+    transform:translateY(-8px) scale(1.03);
+}
+
+.home{
+    background:linear-gradient(135deg,#ff6a00,#ff9500);
+}
+
+.score{
+    background:linear-gradient(135deg,#ff9500,#ffb700);
+}
+
+.shop{
+    background:linear-gradient(135deg,#ffb700,#ffc400);
+}
+
+.ranks{
+    background:linear-gradient(135deg,#8e44ad,#a55eea);
+}
+
+.leaderboard{
+    background:linear-gradient(135deg,#27ae60,#2ecc71);
+}
+
+.allies{
+    background:linear-gradient(135deg,#2980b9,#3498db);
+}
+
+.announcements{
+    background:linear-gradient(135deg,#e74c3c,#ff6b6b);
+}
+
+.menu-card h2{
+    margin:0;
+    font-size:1.8em;
+}
+
+.menu-card p{
+    margin-top:10px;
+    font-size:1em;
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    color:#ffae42;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>🎃 Pumpkin Bros 🎃</h1>
+    <h3>⚔️ Every Season Is Pumpkin Season ⚔️</h3>
+</header>
+
+<div class="menu-grid">
+
+    <a class="menu-card home" href="index.html">
+        <h2>🎃 Home</h2>
+        <p>Welcome to Pumpkin Bros!</p>
+    </a>
+
+    <a class="menu-card score" href="pb-score.html">
+        <h2>💯 PB Score System</h2>
+        <p>Earn PB Score through tournaments and battles.</p>
+    </a>
+
+    <a class="menu-card shop" href="shop.html">
+        <h2>🏪 PB Shop</h2>
+        <p>Spend your PB Score on rewards.</p>
+    </a>
+
+    <a class="menu-card ranks" href="ranks.html">
+        <h2>🧠 Ranks</h2>
+        <p>Climb from Pumpkin to Pumpkin King.</p>
+    </a>
+
+    <a class="menu-card leaderboard" href="leaderboard.html">
+        <h2>🔝 Leaderboard</h2>
+        <p>See the top Pumpkin Bros players.</p>
+    </a>
+
+    <a class="menu-card allies" href="allies.html">
+        <h2>🤝 Allies & Collabs</h2>
+        <p>Meet our allies and partner teams.</p>
+    </a>
+
+    <a class="menu-card announcements" href="announcements.html">
+        <h2>📢 Announcements</h2>
+        <p>Latest Pumpkin Bros news and updates.</p>
+    </a>
+
+</div>
+
+<div class="footer">
+    🎃⚔️ FEAR THE PATCH. HARVEST THE WIN. ⚔️🎃
+</div>
+
+</body>
+</html>
