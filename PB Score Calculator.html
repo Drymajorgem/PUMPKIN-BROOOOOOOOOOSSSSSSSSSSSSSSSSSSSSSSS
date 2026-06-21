@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PB Score Calculator</title>
+
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+}
+
+header{
+    background:linear-gradient(90deg,#ff6a00,#ff9500);
+    text-align:center;
+    padding:30px;
+}
+
+h1{
+    margin:0;
+    font-size:3em;
+}
+
+.container{
+    max-width:700px;
+    margin:30px auto;
+    background:#1c1c1c;
+    border:2px solid #ff8800;
+    border-radius:15px;
+    padding:25px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-size:1.1em;
+}
+
+select,input{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    border:none;
+    border-radius:8px;
+    font-size:1em;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#ff8800;
+    color:white;
+    font-size:1.1em;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff6a00;
+}
+
+.result{
+    margin-top:25px;
+    text-align:center;
+    font-size:1.5em;
+    color:#ffae42;
+    font-weight:bold;
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    color:#ffae42;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💯 PB Score Calculator 💯</h1>
+    <h3>Calculate Your Pumpkin Bros Rewards</h3>
+</header>
+
+<div class="container">
+
+    <label>Tournament Placement</label>
+    <select id="placement">
+        <option value="10">🥇 1st Place (+10 PB)</option>
+        <option value="8">🥈 2nd Place (+8 PB)</option>
+        <option value="6">🥉 3rd Place (+6 PB)</option>
+        <option value="0">Other Placement (+0 PB)</option>
+    </select>
+
+    <label>Team Battle Result</label>
+    <select id="teamBattle">
+        <option value="0">No Team Battle</option>
+        <option value="50">🥇 Team 1st (+50 PB)</option>
+        <option value="30">🥈 Team 2nd (+30 PB)</option>
+        <option value="10">🥉 Team 3rd (+10 PB)</option>
+      <option value="0"> Other Placement  (+0 PB)</option>
+    </select>
+
+    <label>Your Team Battle Rank</label>
+    <select id="playerRank">
+        <option value="0">Not Top 3</option>
+        <option value="100">🥇 Best Player (+100 PB)</option>
+        <option value="80">🥈 2nd Best (+80 PB)</option>
+        <option value="60">🥉 3rd Best (+60 PB)</option>
+    </select>
+
+    <button onclick="calculateScore()">
+        Calculate PB Score
+    </button>
+
+    <div class="result" id="result">
+        Total PB Score: 0
+    </div>
+
+</div>
+
+<div class="footer">
+    🎃⚔️ Every Season Is Pumpkin Season ⚔️🎃
+</div>
+
+<script>
+function calculateScore(){
+
+    let placement =
+        parseInt(document.getElementById("placement").value);
+
+    let teamBattle =
+        parseInt(document.getElementById("teamBattle").value);
+
+    let playerRank =
+        parseInt(document.getElementById("playerRank").value);
+
+    let total =
+        placement +
+        teamBattle +
+        playerRank;
+
+    document.getElementById("result").innerHTML =
+        "🎃 Total PB Score: " + total;
+}
+</script>
+
+</body>
+</html>
