@@ -7,6 +7,35 @@
 
 <style>
 
+#gameArea{
+    width:800px;
+    max-width:95%;
+    height:500px;
+
+    margin:auto;
+
+    background:#222;
+
+    border:2px solid orange;
+
+    border-radius:15px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.enemy{
+    position:absolute;
+    font-size:45px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.enemy:hover{
+    transform:scale(1.2);
+}
+    
 body{
     background:#111;
     color:white;
@@ -181,7 +210,7 @@ h1{
 <body>
 
 <header>
-    <h1>🌠 Pumpkin God Awakening 🌠</h1>
+    <h1>☢️ Forbidden Ritual ☢️</h1>
     <h3>The Ultimate Pumpkin Bros Event</h3>
 </header>
 
@@ -213,7 +242,20 @@ h1{
     <br><br>
 
     <img id="pumpkin" src="god.png">
+    
+<div id="shooterGame" style="display:none;">
 
+    <h2>🔫 Defend the Pumpkin Kingdom</h2>
+
+    <p>
+        Kills:
+        <span id="kills">0</span>/20
+    </p>
+
+    <div id="gameArea"></div>
+
+</div>
+    
     <div id="godText">
         👑 PUMPKIN GOD AWAKENED 👑
     </div>
@@ -244,7 +286,100 @@ function checkRitual(){
             "👑 The Pumpkin God hears your call...";
 
         setTimeout(()=>{
+
+let kills = 0;
+
+function startShooter(){
+
+    document.getElementById("shooterGame")
+        .style.display = "block";
+
+    kills = 0;
+
+    document.getElementById("kills")
+        .innerHTML = kills;
+
+    window.enemySpawner =
+        setInterval(spawnEnemy,900);
+}
+
+function spawnEnemy(){
+
+    let enemy =
+        document.createElement("div");
+
+    enemy.className = "enemy";
+
+    let types = [
+        "💀",
+        "👻",
+        "☠️",
+        "👹"
+    ];
+
+    enemy.innerHTML =
+        types[Math.floor(
+            Math.random()*types.length
+        )];
+
+    enemy.style.left =
+        Math.random()*700 + "px";
+
+    enemy.style.top = "0px";
+
+    document.getElementById("gameArea")
+        .appendChild(enemy);
+
+    let y = 0;
+
+    let move =
+        setInterval(()=>{
+
+        y += 3;
+
+        enemy.style.top =
+            y + "px";
+
+        if(y > 500){
+
+            clearInterval(move);
+
+            enemy.remove();
+        }
+
+    },20);
+
+    enemy.onclick = function(){
+
+        clearInterval(move);
+
+        enemy.innerHTML = "💥";
+
+        kills++;
+
+        document.getElementById("kills")
+            .innerHTML = kills;
+
+        setTimeout(()=>{
+            enemy.remove();
+        },200);
+
+        if(kills >= 20){
+
+            clearInterval(
+                window.enemySpawner
+            );
+
+            document.getElementById(
+                "shooterGame"
+            ).style.display = "none";
+
             awaken();
+        }
+    };
+}
+            
+           startShooter();
         },1000);
 
     }else{
