@@ -6,7 +6,7 @@
 <title>🎃 Pumpkin God Awakening 🎃</title>
 
 <style>
-    
+
 body{
     background:#111;
     color:white;
@@ -153,27 +153,6 @@ h1{
     font-weight:bold;
     margin-top:20px;
 }
-    .secret-box{
-    background:#292929;
-    border-radius:12px;
-    padding:20px;
-    margin-top:20px;
-}
-
-.secret-box input{
-    width:300px;
-    max-width:80%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    text-align:center;
-    font-size:16px;
-}
-
-#message{
-    color:#ffae42;
-    font-weight:bold;
-}
 
 </style>
 </head>
@@ -181,7 +160,7 @@ h1{
 <body>
 
 <header>
-    <h1>☢️ Forbidden Ritual ☢️</h1>
+    <h1>🌠 Pumpkin God Awakening 🌠</h1>
     <h3>The Ultimate Pumpkin Bros Event</h3>
 </header>
 
@@ -193,27 +172,14 @@ h1{
         Press the button below at your own risk...
     </p>
 
-   <div class="secret-box">
-
-    <input
-        type="password"
-        id="ritualPassword"
-        placeholder="Enter the Sacred Words">
-
-    <br><br>
-
-    <button id="doomButton" onclick="checkRitual()">
+    <button id="doomButton" onclick="awaken()">
         🎃 AWAKEN THE PUMPKIN GOD 🎃
     </button>
 
-    <p id="message"></p>
-
-</div>
-    
     <br><br>
 
-    <img id="pumpkin" src="god.png">
-        
+    <img id="pumpkin" src="activity.jack-o-lantern.webp">
+
     <div id="godText">
         👑 PUMPKIN GOD AWAKENED 👑
     </div>
@@ -225,35 +191,7 @@ h1{
 </div>
 
 <script>
-function checkRitual(){
 
-    const password =
-        document.getElementById("ritualPassword")
-        .value
-        .trim()
-        .toLowerCase();
-
-    const sacredWords = [
-        "goof ball is an idiot"
-    ];
-
-    if(sacredWords.includes(password)){
-
-        document.getElementById("message")
-            .innerHTML =
-            "👑 The Pumpkin God hears your call...";
-
-        setTimeout(()=>
-        awaken();
-        },1000);
-
-    }else{
-
-        document.getElementById("message")
-            .innerHTML =
-            "💀 Wrong sacred words.";
-    }
-}
 function awaken(){
 
     document.getElementById("doomButton").disabled = true;
@@ -270,7 +208,8 @@ function awaken(){
 
         let effects = [
             "💥","🔥","⚡","☄️",
-            "💀","🎃",
+            "🌋","💀","🎃","👑",
+            "🏆","🌠","⚔️"
         ];
 
         boom.innerHTML =
