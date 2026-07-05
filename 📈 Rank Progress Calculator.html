@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PB Rank Progress Calculator</title>
+
+<style>
+
+body{
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+    margin:0;
+}
+
+header{
+    background:linear-gradient(90deg,#7b2ff7,#c84cff);
+    padding:30px;
+    text-align:center;
+}
+
+.container{
+    max-width:700px;
+    margin:40px auto;
+    background:#1c1c1c;
+    border-radius:20px;
+    padding:30px;
+    border:3px solid transparent;
+    background-image:
+        linear-gradient(#1c1c1c,#1c1c1c),
+        linear-gradient(135deg,#7b2ff7,#c84cff,#9b30ff);
+    background-origin:border-box;
+    background-clip:padding-box,border-box;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    margin-top:15px;
+    margin-bottom:20px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#9b30ff;
+    color:white;
+}
+
+button:hover{
+    background:#b84dff;
+}
+
+.result{
+    margin-top:30px;
+    line-height:2;
+    font-size:20px;
+}
+
+.progress{
+    width:100%;
+    height:25px;
+    background:#333;
+    border-radius:30px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#7b2ff7,#c84cff);
+    transition:1s;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📈 PB Rank Progress Calculator</h1>
+
+<p>Enter your PB Score</p>
+
+</header>
+
+<div class="container">
+
+<input
+type="number"
+id="score"
+placeholder="Example: 1850">
+
+<button onclick="calculate()">
+
+Calculate
+
+</button>
+
+<div class="result" id="result"></div>
+
+<div class="progress">
+
+<div class="fill" id="fill"></div>
+
+</div>
+
+</div>
+
+<script>
+
+const ranks=[
+
+["🎃 Pumpkin",20],
+
+["♟ Pumpkin Pawn",100],
+
+["🎖 Pumpkin General",300],
+
+["♞ Pumpkin Knight",500],
+
+["♝ Pumpkin Bishop",1000],
+
+["⭐ Pumpkin Sergeant",1500],
+
+["♜ Pumpkin Rook",1600],
+
+["👑 Pumpkin King",4000],
+
+["💀 Pumpkin Reaper",8000],
+
+["🔥 Pumpkin Warlord",12000],
+
+["⚔ Pumpkin Commander",20000],
+
+["👑 Pumpkin Emperor",50000],
+
+["🏆 Pumpkin Legend",100000],
+
+["🌠 Pumpkin God",250000]
+
+];
+
+function calculate(){
+
+let score=parseInt(document.getElementById("score").value);
+
+if(isNaN(score)) return;
+
+let current="Unranked";
+let next=ranks[0];
+let currentReq=0;
+
+for(let i=0;i<ranks.length;i++){
+
+if(score>=ranks[i][1]){
+
+current=ranks[i][0];
+currentReq=ranks[i][1];
+
+}
+
+if(score<ranks[i][1]){
+
+next=ranks[i];
+break;
+
+}
+
+}
+
+let needed=Math.max(next[1]-score,0);
+
+let percent=((score-currentReq)/(next[1]-currentReq))*100;
+
+if(percent>100) percent=100;
+
+if(percent<0) percent=0;
+
+document.getElementById("fill").style.width=percent+"%";
+
+document.getElementById("result").innerHTML=
+
+"🏅 Current Rank: <b>"+current+"</b><br><br>"+
+
+"⬆ Next Rank: <b>"+next[0]+"</b><br><br>"+
+
+"💯 Current PB Score: <b>"+score+"</b><br><br>"+
+
+"🎯 PB Score Needed: <b>"+needed+"</b>";
+
+}
+
+</script>
+
+</body>
+</html>
