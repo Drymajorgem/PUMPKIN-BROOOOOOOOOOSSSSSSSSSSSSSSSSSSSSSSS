@@ -3,132 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pumpkin Bros Allies & Collabs</title>
-<link rel="icon" type="image/webp" href="activity.jack-o-lantern.webp">
+<title>🤝 Pumpkin Bros Allies & Collabs</title>
+
 <style>
-body{
-    background:#111;
-    color:white;
-    font-family:Arial,sans-serif;
+
+*{
     margin:0;
     padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
+
+body{
+    background:#0d1117;
+    color:white;
+}
+
+/* Header */
 
 header{
-    background:linear-gradient(90deg,#2980b9,#3498db);
+    background:linear-gradient(90deg,#005eff,#00b7ff);
+    text-align:center;
+    padding:40px 20px;
+}
+
+header h1{
+    font-size:50px;
+}
+
+header p{
+    margin-top:10px;
+    font-size:20px;
+    color:#d9f4ff;
+}
+
+/* Main */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* Section */
+
+.section{
+    background:#161b22;
+    border:2px solid #00b7ff;
+    border-radius:15px;
+    margin:30px 0;
+    padding:25px;
+}
+
+.section h2{
+    color:#66d9ff;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+/* Cards */
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    background:#1f2937;
+    width:300px;
+    border-radius:15px;
+    overflow:hidden;
+    border:2px solid #00b7ff;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #00b7ff;
+}
+
+/* Logo */
+
+.logo{
+    background:#0b1220;
+    height:170px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:70px;
+}
+
+/* Info */
+
+.info{
+    padding:20px;
+}
+
+.info h3{
+    color:#66d9ff;
+    margin-bottom:10px;
+}
+
+.info p{
+    margin:8px 0;
+}
+
+/* Badge */
+
+.badge{
+    display:inline-block;
+    margin-top:10px;
+    background:#007bff;
+    padding:6px 15px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* Button */
+
+.button{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    margin-top:20px;
+    background:#0099ff;
+    color:white;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.button:hover{
+    background:#00b7ff;
+}
+
+/* Footer */
+
+footer{
     text-align:center;
     padding:30px;
+    color:#66d9ff;
 }
 
-h1{
-    margin:0;
-    font-size:3em;
+/* Mobile */
+
+@media(max-width:700px){
+
+header h1{
+    font-size:35px;
 }
 
-.allies-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(500px,10fr));
-    gap:50px;
-    padding:50px;
-    align: 100px
+.card{
+    width:100%;
 }
 
-
-.ally-card{
-    background:#1c1c1c;
-    border:5px solid #3498db;
-    border-radius:15px;
-    padding:50px;
-    text-align:center;
-    transition:0.3s;
-    box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
 
-.ally-card:hover{
-    transform:translateY(-8px);
-}
-
-.ally-card h2{
-    color:#5dade2;
-}
-
-.owner{
-    color:#5dade2;
-    font-weight:bold;
-}
-
-.note{
-    background:#292929;
-    padding:15px;
-    border-radius:10px;
-    margin:20px;
-    text-align:center;
-}
-
-a{
-    color:#5dade2;
-    text-decoration:none;
-}
-
-a:hover{
-    text-decoration:underline;
-}
-
-.footer{
-    text-align:center;
-    padding:20px;
-    color:#5dade2;
-    font-weight:bold;
-}
 </style>
+
 </head>
 
 <body>
 
 <header>
-    <h1>🤝 Allies & Collabs 🤝</h1>
-    <h3>The Friends of Pumpkin Bros</h3>
+
+<h1>🤝 Allies & Collabs</h1>
+
+<p>Together We Grow • Together We Win</p>
+
 </header>
 
-<div class="note">
-    🤯 If you see the 🤯 emoji on a team's main page,
-    that team is an official ally of Pumpkin Bros.
+<div class="container">
+
+<div class="section">
+
+<h2>🌎 Official Allies</h2>
+
+
+<div class="card">
+
+<div class="logo">
+⚔️
 </div>
 
-<div class="allies-grid">
+<div class="info">
 
-    <div class="ally-card">
-        <h2>Rising Players</h2>
-        <p class="owner">Owner: @devisthebest</p>
-        <p>
-            A friendly allied chess community focused on growth,
-            tournaments, and improvement.
-        </p>
-        <a href="https://lichess.org/team/rising-players" target="_blank">
-            Visit Team
-        </a>
-    </div>
+<h3>Goated Subjugators</h3>
 
-    <div class="ally-card">
-        <h2>🐐 Goated Subjugators</h2>
-        <p class="owner">Owner: @ruylopez1000</p>
-        <p>
-            Competitive team and official Pumpkin Bros collaborator.
-        </p>
-        <a href="https://lichess.org/team/goated-subjugators" target="_blank">
-            Visit Team
-        </a>
-        <div>
-        <a href="GS offer.html" target="_blank">
-what we offer
-        </a>
-        </div>
-        
+<p>👑 Owner: @ruylopez1000</p>
 
+<p>👥 Members:68</p>
 
-<div class="footer">
-    🎃⚔️ Every Season Is Pumpkin Season ⚔️🎃
+<span class="badge">
+🥇 Gold Ally
+</span>
+
+<a class="button"
+href="https://lichess.org/team/goated-subjugators"
+target="_blank">
+Visit Team
+</a>
+
 </div>
+
+</div>
+
+
+<div class="card">
+
+<div class="logo">
+🌟
+</div>
+
+<div class="info">
+
+<h3>Rising Players</h3>
+
+<p>👑 Owner: @devisthebest</p>
+
+<p>👥 Members:68</p>
+
+<span class="badge">
+⭐ Official Ally
+</span>
+
+<a class="button"
+href="https://lichess.org/team/rising-players"
+target="_blank">
+Visit Team
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="logo">
+🍁
+</div>
+
+<div class="info">
+
+<h3>Keshav-Kumar-Gautam and friends (k-k-g-f)</h3>
+
+<p>👑 Owner: Keshav-Kumar-Gautam</p>
+
+<p>👥 Members:129</p>
+
+<span class="badge">
+    ⭐ Official Ally
+</span>
+
+<a class="button"
+href="https://lichess.org/team/keshav-kumar-gautam-and-friends-k-k-g-f"
+    target="_blank">
+Visit Team
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+🤝 Thank you to all our amazing allies! 💙
+
+</footer>
 
 </body>
 </html>
