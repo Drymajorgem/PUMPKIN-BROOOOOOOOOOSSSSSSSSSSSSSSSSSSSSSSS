@@ -51,15 +51,22 @@ h1{
             #6a0dad
         );
 
-    background-size:100% 100%,300% 300%;
+    background-size:200% 200%,300% 300%;
 
     background-origin:border-box;
 
     background-clip:padding-box,border-box;
 
     animation:purpleBorder 5s linear infinite;
-}
 
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        filter 0.35s ease,
+        background-size 0.6s ease;
+
+}
+    
 @keyframes purpleBorder{
 
 0%{
@@ -73,10 +80,9 @@ background-position:300% 50%;
 }
     
 .rank-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 0 25px rgba(255,140,0,.6);
+transform:
+        translateY(-10px)
+        scale(1.03);
 
 } 
     
