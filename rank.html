@@ -36,24 +36,42 @@ h1{
 
     background:#1c1c1c;
 
-    padding:20px;
+    border:3px solid transparent;
 
     border-radius:18px;
 
-    border:3px solid transparent;
-
     background-image:
         linear-gradient(#1c1c1c,#1c1c1c),
-        linear-gradient(135deg,#ff8c00,#ffcc00,#ff5500);
+        linear-gradient(
+            90deg,
+            #6a0dad,
+            #9b30ff,
+            #d946ef,
+            #9b30ff,
+            #6a0dad
+        );
+
+    background-size:100% 100%,300% 300%;
 
     background-origin:border-box;
 
     background-clip:padding-box,border-box;
 
-    transition:.35s;
-
+    animation:purpleBorder 5s linear infinite;
 }
 
+@keyframes purpleBorder{
+
+0%{
+background-position:0% 50%;
+}
+
+100%{
+background-position:300% 50%;
+}
+
+}
+    
 .rank-card:hover{
 
     transform:translateY(-8px);
