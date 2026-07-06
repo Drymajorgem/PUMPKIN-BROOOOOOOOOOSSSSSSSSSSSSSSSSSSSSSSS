@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Profile</title>
+
+<style>
+
+body{
+
+background:#111;
+
+color:white;
+
+font-family:Arial;
+
+text-align:center;
+
+padding-top:100px;
+
+}
+
+button{
+
+padding:12px 25px;
+
+font-size:18px;
+
+background:orange;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎃 Welcome to Pumpkin Bros!</h1>
+
+<h2 id="userEmail"></h2>
+
+<button id="logoutBtn">Logout</button>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+import {
+
+getAuth,
+
+onAuthStateChanged,
+
+signOut
+
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyB2HxW-Pg-CrC_6SKg6pnoJlXJZpOtAq5I",
+
+authDomain: "pumpkin-brossssssssssssss.firebaseapp.com",
+
+projectId: "pumpkin-brossssssssssssss",
+
+storageBucket: "pumpkin-brossssssssssssss.firebasestorage.app",
+
+messagingSenderId: "442990635356",
+
+appId: "1:442990635356:web:b7eb99910eadc8b8443999",
+
+measurementId: "G-Y333SC5RE5"
+
+};
+
+const app=initializeApp(firebaseConfig);
+
+const auth=getAuth(app);
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+document.getElementById("userEmail").innerHTML=user.email;
+
+}else{
+
+window.location.href="login.html";
+
+}
+
+});
+
+document.getElementById("logoutBtn").onclick=async()=>{
+
+await signOut(auth);
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
