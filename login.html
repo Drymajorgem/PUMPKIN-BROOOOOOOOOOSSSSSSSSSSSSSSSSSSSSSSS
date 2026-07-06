@@ -134,13 +134,11 @@ Login
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
 import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-    
+
 const firebaseConfig = {
   apiKey: "AIzaSyB2HxW-Pg-CrC_6SKg6pnoJlXJZpOtAq5I",
   authDomain: "pumpkin-brossssssssssssss.firebaseapp.com",
@@ -151,12 +149,53 @@ const firebaseConfig = {
   measurementId: "G-Y333SC5RE5"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
+// Register
+document.getElementById("registerBtn").addEventListener("click", async () => {
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try{
+
+        await createUserWithEmailAndPassword(auth,email,password);
+
+        document.getElementById("message").innerHTML =
+        "✅ Account created successfully!";
+
+    }catch(error){
+
+        document.getElementById("message").innerHTML =
+        "❌ " + error.message;
+
+    }
+
+});
+
+// Login
+document.getElementById("loginBtn").addEventListener("click", async () => {
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try{
+
+        await signInWithEmailAndPassword(auth,email,password);
+
+        window.location.href="profile.html";
+
+    }catch(error){
+
+        document.getElementById("message").innerHTML =
+        "❌ " + error.message;
+
+    }
+
+});
 
 </script>
-
+    
 </body>
 </html>
