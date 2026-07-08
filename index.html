@@ -104,13 +104,50 @@ h1{
     font-weight:bold;
 }
 
+#explosion-container{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:9999;
+}
 
+.boom{
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:radial-gradient(circle,#ffd700,#ff7b00,#ff3c00,transparent);
+    transform:translate(-50%,-50%) scale(0);
+    animation:boom .6s ease-out forwards;
+}
+
+@keyframes boom{
+
+0%{
+transform:translate(-50%,-50%) scale(0);
+opacity:1;
+}
+
+70%{
+transform:translate(-50%,-50%) scale(6);
+opacity:.8;
+}
+
+100%{
+transform:translate(-50%,-50%) scale(8);
+opacity:0;
+}
+
+}
     
 </style>
 
 </head>
+    <div id="explosion-container"></div>
 <body>
 
+    
 <header>
     <h1>PUMPKIN BROOOOOOOOOOSSSSSSSSSSSSSSSSSSSSSSS</h1>
     <h3>⚔️ Every Season Is Pumpkin Season ⚔️</h3>
@@ -161,5 +198,44 @@ h1{
     🎃⚔️Every Season Is Pumpkin Season.⚔️🎃
 </div>
 
+<script>
+
+const container=document.getElementById("explosion-container");
+
+document.addEventListener("click",e=>{
+
+    for(let i=0;i<18;i++){
+
+        const p=document.createElement("div");
+
+        p.className="boom";
+
+        const angle=Math.random()*Math.PI*2;
+
+        const distance=20+Math.random()*60;
+
+        const x=e.clientX+Math.cos(angle)*distance;
+
+        const y=e.clientY+Math.sin(angle)*distance;
+
+        p.style.left=x+"px";
+        p.style.top=y+"px";
+
+        p.style.animationDelay=(Math.random()*0.05)+"s";
+
+        container.appendChild(p);
+
+        p.addEventListener("animationend",()=>{
+
+            p.remove();
+
+        });
+
+    }
+
+});
+
+</script>
+    
 </body>
 </html>
