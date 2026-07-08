@@ -103,6 +103,49 @@ margin-top:20px;
 color:#aaa;
 font-size:14px;
 }
+
+.pumpkin{
+
+position:fixed;
+
+font-size:50px;
+
+pointer-events:none;
+
+z-index:99999;
+
+animation:floatUp 2s ease-out forwards;
+
+}
+
+@keyframes floatUp{
+
+0%{
+
+transform:translateY(0) scale(.5);
+
+opacity:0;
+
+}
+
+20%{
+
+transform:translateY(-20px) scale(1);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-180px) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+  
 </style>
 
 </head>
@@ -161,5 +204,31 @@ text.innerHTML="You rolled <b>"+value+"</b>!";
 
 </script>
 
+<script>
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.target.tagName==="INPUT" ||
+   e.target.tagName==="TEXTAREA") return;
+
+if(e.key.toLowerCase()!=="p") return;
+
+const pumpkin=document.createElement("div");
+
+pumpkin.className="pumpkin";
+
+pumpkin.textContent="🎃";
+
+pumpkin.style.left=Math.random()*(window.innerWidth-60)+"px";
+pumpkin.style.top=Math.random()*(window.innerHeight-60)+"px";
+
+document.body.appendChild(pumpkin);
+
+pumpkin.onanimationend=()=>pumpkin.remove();
+
+});
+
+</script>
+  
 </body>
 </html>
