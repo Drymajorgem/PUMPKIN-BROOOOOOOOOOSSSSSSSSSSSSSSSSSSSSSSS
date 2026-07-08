@@ -80,13 +80,34 @@ button:hover{
     background:linear-gradient(90deg,#7b2ff7,#c84cff);
     transition:1s;
 }
+    #pumpkin{
+
+position:fixed;
+
+left:100px;
+
+top:100px;
+
+font-size:55px;
+
+z-index:99999;
+
+user-select:none;
+
+pointer-events:none;
+
+transition:.08s linear;
+
+filter:drop-shadow(0 0 10px orange);
+
+}
 
 </style>
 
 </head>
 
 <body>
-
+<div id="pumpkin">🎃</div>
 <header>
 
 <h1>📈 PB Rank Progress Calculator</h1>
@@ -204,5 +225,49 @@ document.getElementById("result").innerHTML=
 
 </script>
 
+<script>
+
+const pumpkin=document.getElementById("pumpkin");
+
+let x=100;
+let y=100;
+
+const speed=20;
+
+document.addEventListener("keydown",(e)=>{
+
+switch(e.key){
+
+case "ArrowUp":
+y-=speed;
+break;
+
+case "ArrowDown":
+y+=speed;
+break;
+
+case "ArrowLeft":
+x-=speed;
+break;
+
+case "ArrowRight":
+x+=speed;
+break;
+
+default:
+return;
+
+}
+
+x=Math.max(0,Math.min(window.innerWidth-60,x));
+y=Math.max(0,Math.min(window.innerHeight-60,y));
+
+pumpkin.style.left=x+"px";
+pumpkin.style.top=y+"px";
+
+});
+
+</script>
+    
 </body>
 </html>
